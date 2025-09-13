@@ -54,3 +54,42 @@ unsigned decimal integers?<br>
   **447**<br>
   c. 1001<br>
   **4097**<br>
+10. What is the unsigned decimal representation of each of the following hexadecimal integers?<br>
+  a. 62 **98**
+  b. 4B3 **1203**
+  c. 29F **671**
+11. What is the 16-bit hexadecimal representation of each of the following signed decimal integers?<br>
+  a. -24 **FFE8**
+  b. -331 **FEB5**
+12. What is the 16-bit hexadecimal representation of each of the following signed decimal integers?<br>
+  a. -21 
+  b. -45
+13. The following 16-bit hexadecimal numbers represent signed integers. Convert each to
+decimal.<br>
+  a. 6BF9
+  b. C123
+14. The following 16-bit hexadecimal numbers represent signed integers. Convert each to
+decimal.<br>
+  a. 4CD2
+  b. 8230
+15. What is the decimal representation of each of the following signed binary numbers?<br>
+  a. 10110101
+  b. 00101010
+c. 11110000
+16. What is the decimal representation of each of the following signed binary numbers?<br>
+  a. 10000000
+  b. 11001100
+  c. 10110111
+17. What is the 8-bit binary (two’s-complement) representation of each of the following signed
+decimal integers?<br>
+  a. -5
+  b. -42
+  c. -16
+18. What is the 8-bit binary (two’s-complement) representation of each of the following signed
+decimal integers?<br>
+  a. -72
+  b. -98
+  c. -26
+19. What is the sum of each pair of hexadecimal integers?<br>
+  a. 6B4 + 3FE
+  b. A49 + 6BD
