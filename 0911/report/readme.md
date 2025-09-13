@@ -92,4 +92,33 @@ decimal integers?<br>
   c. -26 **11100110**
 19. What is the sum of each pair of hexadecimal integers?<br>
   a. 6B4 + 3FE **AB2**
-  b. A49 + 6BD **1106**
+  b. A49 + 6BD **16진수1106**
+20. What is the sum of each pair of hexadecimal integers?<br>
+  a. 7C4  3BE **B82**
+  b. B69  7AD **16진수1316**
+21. What are the hexadecimal and decimal representations of the ASCII character capital B?<br>
+  **16진수42 10진66**<br>
+22. What are the hexadecimal and decimal representations of the ASCII character capital G?<br>
+  **16진수47 10진71**<br>
+23. Challenge: What is the largest decimal value you can represent, using a 129-bit unsigned
+integer? **680564733841876926926749214863536422911**<br>
+24. Challenge: What is the largest decimal value you can represent, using a 86-bit signed
+integer? **38685626227668133590597631** <br>
+25. Create a truth table to show all possible inputs and outputs for the boolean function
+described by ¬(A ∨ B).<br>
+A B A ∨ B ¬(A ∨ B)<br>
+**0 0    0       1**<br>
+**0 1    1       0**<br>
+**1 0    1       0**<br>
+**1 1    1       0**<br>
+26. Create a truth table to show all possible inputs and outputs for the boolean function
+described by (¬A ∧ ¬B). How would you describe the rightmost column of this table in
+relation to the table from question number 25? Have you heard of De Morgan’s Theorem?<br>
+**A B ¬A ¬B ¬A∧¬B**<br>
+**0 0  1  1    1**<br>
+**0 1  1  0    0**<br>
+**1 0  0  1    0**<br>
+**1 1  0  0    0**<br>
+**대충 본다면 ¬(A ∨ B)와 ¬A∧¬B는 다른 함수같아 보이지만 사실은 같다. 1000으로 결과가 같게 나오는 것처럼 드모르간의 법칙도 그렇게 말한다**<br>
+27. If a boolean function has four inputs, how many rows are required for its truth table?**16**<br>
+28. How many selector bits are required for a four-input multiplexer?**2bit**<br>
