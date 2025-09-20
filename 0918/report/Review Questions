@@ -33,3 +33,29 @@ devices.
 25. At which level(s) can an assembly language program manipulate input/output?
 26. Why do game programs often send their sound output directly to the sound card’s hardware
 ports?
+1. Base Pointer(EBP)
+2. Carry flag (CF), Overflow flag (OF), Sign flag (SF), Zero flag (ZF)
+3. Carry flag (CF)
+4. Overflow flag (OF)
+5. True
+6. Sign flag (SF)
+7.
+8.
+9.
+10.
+11.
+12.
+13
+14.
+15.
+16.
+17.
+18.
+19.
+20.
+21.
+22.
+23.
+24.
+25.
+26.
