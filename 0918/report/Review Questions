@@ -39,23 +39,23 @@ ports?
 4. Overflow flag (OF)
 5. True
 6. Sign flag (SF)
-7.
-8.
-9.
-10.
-11.
-12.
-13
-14.
-15.
-16.
-17.
-18.
-19.
-20.
-21.
-22.
-23.
-24.
-25.
-26.
+7. floating-point unit (FPU)
+8. 80bit
+9. True
+10. False
+11. True
+12. False
+13. True
+14. True
+15. False
+16. True
+17. False
+18. False
+19. False
+20. False
+21. True
+22. True
+23. False
+24. False
+25. Library Functions, OS Functions, BIOS Functions, Hardware Port Control
+26. 하드웨어 포트에 직접 넣지않으면 발생하는 딜레이가 게임에 치명적이어서.
