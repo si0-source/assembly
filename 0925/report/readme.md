@@ -32,7 +32,6 @@ variables?
 28. Which data directive creates an 8-bit signed integer variable?
 29. Which data directive creates a 10-byte packed BCD variable?
 
-<br>
 1. Define four symbolic constants that represent integer 25 in decimal, binary, octal,
 and hexadecimal formats.
 2. Find out, by trial and error, if a program can have multiple code and data segments.
@@ -56,10 +55,9 @@ a nullterminated string.
 13. Declare a string variable containing the word “TEST” repeated 500 times.
 14. Declare an array of 20 unsigned bytes named bArray and initialize all elements to
 zero.
-94 Chapter 3 • Assembly Language Fundamentals
 15. Show the order of individual bytes in memory (lowest to highest) for the following doubleword variable:
 val1 DWORD 87654321h
-<br>
+
 1. Integer Expression Calculation
 Using the AddTwo program from Section 3.2 as a reference, write a program that calculates the
 following expression, using registers: A = (A + B) − (C + D). Assign integer values to the EAX,
