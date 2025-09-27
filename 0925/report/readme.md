@@ -31,3 +31,4 @@ variables?
 27. Which data directive creates a 64-bit unsigned integer variable?
 28. Which data directive creates an 8-bit signed integer variable?
 29. Which data directive creates a 10-byte packed BCD variable?
+1.
