@@ -24,13 +24,13 @@ colon.**True**
 variables?**무슨 역할의 코드인지 알아보기 힘들다**
 18. What type of argument must be passed to the ExitProcess procedure?**0**
 19. Which directive ends a procedure?**ENDP**
-20. In 32-bit mode, what is the purpose of the identifier in the END directive?
-21. What is the purpose of the PROTO directive?
-22. (True/False): An Object file is produced by the Linker.
-23. (True/False): A Listing file is produced by the Assembler.
-24. (True/False): A link library is added to a program just before producing an Executable file.
-25. Which data directive creates a 32-bit signed integer variable?
-26. Which data directive creates a 16-bit signed integer variable?
-27. Which data directive creates a 64-bit unsigned integer variable?
-28. Which data directive creates an 8-bit signed integer variable?
-29. Which data directive creates a 10-byte packed BCD variable?
+20. In 32-bit mode, what is the purpose of the identifier in the END directive?**진짜 끝을 알려줌**
+21. What is the purpose of the PROTO directive?**프로시저의 원형을 만든다**
+22. (True/False): An Object file is produced by the Linker.**False**
+23. (True/False): A Listing file is produced by the Assembler.**True**
+24. (True/False): A link library is added to a program just before producing an Executable file.**True**
+25. Which data directive creates a 32-bit signed integer variable?**SDWORD**
+26. Which data directive creates a 16-bit signed integer variable?**SWORD**
+27. Which data directive creates a 64-bit unsigned integer variable?**QWORD**
+28. Which data directive creates an 8-bit signed integer variable?**SBYTE**
+29. Which data directive creates a 10-byte packed BCD variable?**TBYTE**
