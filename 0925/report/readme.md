@@ -32,7 +32,7 @@ variables?
 28. Which data directive creates an 8-bit signed integer variable?
 29. Which data directive creates a 10-byte packed BCD variable?
 
-
+<br>
 1. Define four symbolic constants that represent integer 25 in decimal, binary, octal,
 and hexadecimal formats.
 2. Find out, by trial and error, if a program can have multiple code and data segments.
