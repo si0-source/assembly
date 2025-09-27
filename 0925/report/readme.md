@@ -59,7 +59,7 @@ zero.
 94 Chapter 3 • Assembly Language Fundamentals
 15. Show the order of individual bytes in memory (lowest to highest) for the following doubleword variable:
 val1 DWORD 87654321h
-
+<br>
 1. Integer Expression Calculation
 Using the AddTwo program from Section 3.2 as a reference, write a program that calculates the
 following expression, using registers: A = (A + B) − (C + D). Assign integer values to the EAX,
