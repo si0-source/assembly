@@ -5,42 +5,42 @@ two WORD 4321h
 .code
 mov edx,21348041h
 movsx edx,one ; (a)
-movsx edx,two ; (b)
+movsx edx,two ; (b)**a=FFFF8002h b=00004321h**
 2. What will be the value in EAX after the following lines execute?
 mov eax,1002FFFFh
-inc ax
+inc ax**10020000h**
 3. What will be the value in EAX after the following lines execute?
 mov eax,30020000h
-dec ax
+dec ax**3002FFFFh**
 4. What will be the value in EAX after the following lines execute?
 mov eax,1002FFFFh
-neg ax
+neg ax**10020001h**
 5. What will be the value of the Parity flag after the following lines execute?
 mov al,1
-add al,3
+add al,3 **Parity flag=0**
 6. What will be the value of EAX and the Sign flag after the following lines execute?
 mov eax,5
-sub eax,6
+sub eax,6**FFFFFFFFh Sign flag=1**
 7. In the following code, the value in AL is intended to be a signed byte. Explain how the
 Overflow flag helps, or does not help you, to determine whether the final value in AL falls
 within a valid signed range.
 mov al,-1
-add al,130
+add al,130**결과가 129이면 최대값을 넘어서 of가 1이 되어 도움이 된다.**
 8. What value will RAX contain after the following instruction executes?
-mov rax,44445555h
+mov rax,44445555h**0000000044445555h**
 9. What value will RAX contain after the following instructions execute?
 .data
 dwordVal DWORD 84326732h
 .code
 mov rax,0FFFFFFFF00000000h
-mov rax,dwordVal
+mov rax,dwordVal**0000000084326732h**
 10. What value will EAX contain after the following instructions execute?
 .data
 dVal DWORD 12345678h
 .code
 mov ax,3
 mov WORD PTR dVal+2,ax
-mov eax,dVal
+mov eax,dVal**00035678**
 11. What will EAX contain after the following instructions execute?
 .data
 .dVal DWORD ?
@@ -49,19 +49,19 @@ mov dVal,12345678h
 mov ax,WORD PTR dVal+2
 add ax,3
 mov WORD PTR dVal,ax
-mov eax,dVal
+mov eax,dVal**12341237h**
 12. (Yes/No): Is it possible to set the Overflow flag if you add a positive integer to a negative
-integer?
+integer?**no**
 13. (Yes/No): Will the Overflow flag be set if you add a negative integer to a negative integer
-and produce a positive result?
-14. (Yes/No): Is it possible for the NEG instruction to set the Overflow flag?
+and produce a positive result?**yes**
+14. (Yes/No): Is it possible for the NEG instruction to set the Overflow flag?**yes**
 15. (Yes/No): Is it possible for both the Sign and Zero flags to be set at the same time?
 Use the following variable definitions for Questions 16–19:
 .data
 var1 SBYTE -4,-2,3,1
 var2 WORD 1000h,2000h,3000h,4000h
 var3 SWORD -16,-42
-var4 DWORD 1,2,3,4,5
+var4 DWORD 1,2,3,4,5**no**
 16. For each of the following statements, state whether or not the instruction is valid:
 a. mov ax,var1?
 b. mov ax,var2
