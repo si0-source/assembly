@@ -87,6 +87,7 @@ mov edx,var4 ; a.
 movzx edx,var2 ; b.
 mov edx,[var4+4] ; c.
 movsx edx,var1 ; d.
+<hr>
 1. Write a sequence of MOV instructions that will exchange the upper and lower words in a
 doubleword variable named three.
 2. Using the XCHG instruction no more than three times, reorder the values in four 8-bit registers from the order A,B,C,D to B,C,D,A.
