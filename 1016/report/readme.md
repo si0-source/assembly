@@ -55,38 +55,38 @@ integer?**no**
 13. (Yes/No): Will the Overflow flag be set if you add a negative integer to a negative integer
 and produce a positive result?**yes**
 14. (Yes/No): Is it possible for the NEG instruction to set the Overflow flag?**yes**
-15. (Yes/No): Is it possible for both the Sign and Zero flags to be set at the same time?
+15. (Yes/No): Is it possible for both the Sign and Zero flags to be set at the same time?**no**
 Use the following variable definitions for Questions 16–19:
 .data
 var1 SBYTE -4,-2,3,1
 var2 WORD 1000h,2000h,3000h,4000h
 var3 SWORD -16,-42
-var4 DWORD 1,2,3,4,5**no**
+var4 DWORD 1,2,3,4,5
 16. For each of the following statements, state whether or not the instruction is valid:
 a. mov ax,var1?
-b. mov ax,var2
+b. mov ax,var2**valid**
 c. mov eax,var3
 d. mov var2,var3
 e. movzx ax,var2
 f. movzx var2,al
-g. mov ds,ax
+g. mov ds,ax**valid**
 h. mov ds,1000h
 17. What will be the hexadecimal value of the destination operand after each of the following
 instructions execute in sequence?
-mov al,var1 ; a.
-mov ah,[var1+3] ; b.
+mov al,var1 ; a.**FCh**
+mov ah,[var1+3] ; b.**01h**
 18. What will be the value of the destination operand after each of the following instructions
 execute in sequence?
-mov ax,var2 ; a.
-mov ax,[var2+4] ; b.
-mov ax,var3 ; c.
-mov ax,[var3-2] ; d.
+mov ax,var2 ; a.**1000h**
+mov ax,[var2+4] ; b.**3000h**
+mov ax,var3 ; c.**FFF0h**
+mov ax,[var3-2] ; d.**4000h**
 19. What will be the value of the destination operand after each of the following instructions
 execute in sequence?
-mov edx,var4 ; a.
-movzx edx,var2 ; b.
-mov edx,[var4+4] ; c.
-movsx edx,var1 ; d.
+mov edx,var4 ; a.**00000001h**
+movzx edx,var2 ; b.**00001000h**
+mov edx,[var4+4] ; c.**00000002h**
+movsx edx,var1 ; d.**FFFFFFFCh**
 1. Write a sequence of MOV instructions that will exchange the upper and lower words in a
 doubleword variable named three.
 2. Using the XCHG instruction no more than three times, reorder the values in four 8-bit registers from the order A,B,C,D to B,C,D,A.
