@@ -139,18 +139,20 @@ myString BYTE "ABCDE"
 ALIGN 2  
 myBytes BYTE 10h,20h,30h,40h**
 13. What will be the value of EAX after each of the following instructions execute?
-mov eax,TYPE myBytes ; a.
-mov eax,LENGTHOF myBytes ; b.
-mov eax,SIZEOF myBytes ; c.
-mov eax,TYPE myWords ; d.
-mov eax,LENGTHOF myWords ; e.
-mov eax,SIZEOF myWords ; f.
-mov eax,SIZEOF myString ; g.
+mov eax,TYPE myBytes ; a.**00000001h**
+mov eax,LENGTHOF myBytes ; b.**00000004h**
+mov eax,SIZEOF myBytes ; c.**00000004h**
+mov eax,TYPE myWords ; d.**00000002h**
+mov eax,LENGTHOF myWords ; e.**00000004h**
+mov eax,SIZEOF myWords ; f.**00000008h**
+mov eax,SIZEOF myString ; g.**00000005h**
 14. Write a single instruction that moves the first two bytes in myBytes to the DX register. The
-resulting value will be 2010h.
-15. Write an instruction that moves the second byte in myWords to the AL register.
-16. Write an instruction that moves all four bytes in myBytes to the EAX register.
+resulting value will be 2010h.**mov dx, WORD PTR myBytes**
+15. Write an instruction that moves the second byte in myWords to the AL register.**mov al, BYTE PTR myWords+1**
+16. Write an instruction that moves all four bytes in myBytes to the EAX register.**mov eax, DWORD PTR myBytes**
 17. Insert a LABEL directive in the given data that permits myWords to be moved directly to a
-32-bit register.
+32-bit register.**w WORD 1000h, 2000h, 3000h, 4000h
+wD LABEL DWORD**
 18. Insert a LABEL directive in the given data that permits myBytes to be moved directly to a
-16-bit register
+16-bit register**b BYTE 1000h, 2000h, 3000h, 4000h
+bw LABEL WORD**
