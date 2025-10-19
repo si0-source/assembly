@@ -5,7 +5,7 @@ f DWORD 7 DUP(?)
 count =5
 .code
 main PROC
-    mov eax, 0
+    mov eax, 1
     mov ebx, 1
     mov esi, OFFSET f
 
@@ -26,4 +26,5 @@ L1:
 
     invoke ExitProcess, 0
 main ENDP
+
 END main
