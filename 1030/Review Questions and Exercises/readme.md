@@ -1,29 +1,44 @@
- 1. Which instruction pushes all of the 32-bit general-purpose registers on the stack?
- 2. Which instruction pushes the 32-bit EFLAGS register on the stack?
- 3. Which instruction pops the stack into the EFLAGS register?
+ 1. Which instruction pushes all of the 32-bit general-purpose registers on the stack?**PUSHAD**
+ 2. Which instruction pushes the 32-bit EFLAGS register on the stack?**PUSHFD**
+ 3. Which instruction pops the stack into the EFLAGS register?**POPFD**
  4. Challenge: Another assembler (called NASM) permits the PUSH instruction to list multiple
  specific registers. Why might this approach be better than the PUSHAD instruction in
  MASM? Here is a NASM example:
- PUSH EAX EBX ECX
+ PUSH EAX EBX ECX**PUSHAD는 전부 저장이라 쓸 필요가 없는 레지스터까지 저장해야하지만 여러개를 선택할 수 있으면 더 효율적이다**
  5. Challenge: Suppose there were no PUSH instruction. Write a sequence of two other instruc
-tions that would accomplish the same as push eax.
- 6. (True/False): The RET instruction pops the top of the stack into the instruction pointer.
+tions that would accomplish the same as push eax.**sub esp, 4  
+mov [esp], eax**
+ 6. (True/False): The RET instruction pops the top of the stack into the instruction pointer.**True**
  7. (True/False): Nested procedure calls are not permitted by the Microsoft assembler unless
- the NESTED operator is used in the procedure definition.
+ the NESTED operator is used in the procedure definition.**False**
  8. (True/False): In protected mode, each procedure call uses a minimum of 4 bytes of stack
- space.
+ space.**True**
  9. (True/False): The ESI and EDI registers cannot be used when passing 32-bit parameters to
- procedures.
+ procedures.**False**
  10. (True/False): The ArraySum procedure (Section 5.2.5) receives a pointer to any array of
- doublewords.
+ doublewords.**True**
  11. (True/False): The USES operator lets you name all registers that are modified within a pro
-cedure.
+cedure.**True**
  12. (True/False): The USES operator only generates PUSH instructions, so you must code POP
- instructions yourself.
+ instructions yourself.**False**
  13. (True/False): The register list in the USES directive must use commas to separate the regis
-ter names.
+ter names.**False**
  14. Which statement(s) in the ArraySum procedure (Section 5.2.5) would have to be modified so
  it could accumulate an array of 16-bit words? Create such a version of ArraySum and test it.
+ **.**  
+ ArraySum PROC  
+  push esi  
+  push ecx  
+  mov eax, 0  
+ L1:  
+  add ax, [esi]  
+  add esi, TYPE WORD  
+  loop L1  
+  pop ecx  
+  pop esi  
+  ret  
+ArraySum ENDP
+**.**  
  15. What will be the final value in EAX after these instructions execute?
  push 5
  push 6
