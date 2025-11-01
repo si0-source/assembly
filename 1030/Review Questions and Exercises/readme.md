@@ -25,7 +25,7 @@ cedure.**True**
 ter names.**False**
  14. Which statement(s) in the ArraySum procedure (Section 5.2.5) would have to be modified so
  it could accumulate an array of 16-bit words? Create such a version of ArraySum and test it.
- **.**  
+ **아래가 답**  
  ArraySum PROC  
   push esi  
   push ecx  
@@ -38,117 +38,90 @@ ter names.**False**
   pop esi  
   ret  
 ArraySum ENDP
-**.**  
- 15. What will be the final value in EAX after these instructions execute?
+**위가 답**  
+ 15. What will be the final value in EAX after these instructions execute?**5**
  push 5
  push 6
  pop  eax
  pop  eax
- 16. Which statement is true about what will happen when the example code runs?
+ 16. Which statement is true about what will happen when the example code runs?**d**
  1: main PROC
- 2: 
-push 10
- 3:
- 4:
- 5:
- 6:
- push 20
- call Ex2Sub
- pop  eax
- INVOKE ExitProcess,0
+ 2: push 10
+ 3: push 20
+ 4: call Ex2Sub
+ 5: pop  eax
+ 6: INVOKE ExitProcess,0
  7: main ENDP
  8:
  9: Ex2Sub PROC
- 10:
- pop eax
- 11:
- ret
+ 10: pop eax
+ 11: ret
  12: Ex2Sub ENDP
  a. EAX will equal 10 on line 6
  b. The program will halt with a runtime error on Line 10
  c. EAX will equal 20 on line 6
  d. The program will halt with a runtime error on Line 11 
-17. Which statement is true about what will happen when the example code runs?
+17. Which statement is true about what will happen when the example code runs?**d**
  1: main PROC
- 2:
- mov  eax,30
- 3:
- 4:
- 5:
- 6:
- push eax
- push 40
- call Ex3Sub
- INVOKE ExitProcess,0
+ 2: mov  eax,30
+ 3: push eax
+ 4: push 40
+ 5: call Ex3Sub
+ 6: INVOKE ExitProcess,0
  7: main ENDP
  8:
  9: Ex3Sub PROC
- 10:
- pusha
- 11:
- 12: 13:
- ret
+ 10: pusha
+ 11: mov eax,80
+ 12: popa
+ 13: ret
  14: Ex3Sub ENDP
  a. EAX will equal 40 on line 6
  b. The program will halt with a runtime error on Line 6
  c. EAX will equal 30 on line 6 
-d. The program will halt with a runtime error on Line 13
- 18. Which statement is true about what will happen when the example code runs?
+ d. The program will halt with a runtime error on Line 13
+ 18. Which statement is true about what will happen when the example code runs?**c**
  1: main PROC
- 2:
- mov eax,40
- 3:
- 4:
- push offset Here
- jmp  Ex4Sub
+ 2: mov eax,40
+ 3: push offset Here
+ 4: jmp  Ex4Sub
  5:    Here:
- 6:
- mov eax,30
- 7:
- INVOKE ExitProcess,0
+ 6: mov eax,30
+ 7: INVOKE ExitProcess,0
  8: main ENDP
  9:
  10: Ex4Sub PROC
- 11:
- ret
+ 11: ret
  12: Ex4Sub ENDP
  a. EAX will equal 30 on line 7
  b. The program will halt with a runtime error on Line 4
  c. EAX will equal 30 on line 6 
-d. The program will halt with a runtime error on Line 11
- 19. Which statement is true about what will happen when the example code runs?
+ d. The program will halt with a runtime error on Line 11
+ 19. Which statement is true about what will happen when the example code runs?**a**
  1: main PROC
- 2:
- mov edx,0
- 3:
- 4:
- 5:
- 6:
- mov eax,40
- push eax
- call Ex5Sub
- INVOKE ExitProcess,0
+ 2: mov edx,0
+
+ 3: mov eax,40
+ 4: push eax
+ 5: call Ex5Sub
+ 6: INVOKE ExitProcess,0
  7: main ENDP
  8:
  9: Ex5Sub PROC
- 10:
- pop  eax
- 11:
- 12:
- 13:
- pop  edx
- push eax
- ret
+ 10: pop  eax
+ 11: pop  edx
+ 12: push eax
+ 13: ret
  14: Ex5Sub ENDP
  a. EDX will equal 40 on line 6 
  b. The program will halt with a runtime error on Line 13
  c. EDX will equal 0 on line 6 
  d. The program will halt with a runtime error on Line 11
- 20. What values will be written to the array when the following code executes?
+ 20. What values will be written to the array when the following code executes?**[10,20,30,40]**
  .data
  array DWORD 4 DUP(0)
  .code
- main PROC
+  main PROC
  mov eax,10
  mov  esi,0
  call proc_1
@@ -175,6 +148,3 @@ d. The program will halt with a runtime error on Line 11
  mov  array[esi],eax
  ret
  proc_3 ENDP
-
- mov eax,80
- popa
