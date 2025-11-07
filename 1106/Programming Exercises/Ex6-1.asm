@@ -44,6 +44,7 @@ L2:
     add esi, 4
     loop L2
 
-    exit
+    invoke ExitProcess, 0
 main ENDP
 END main
+
