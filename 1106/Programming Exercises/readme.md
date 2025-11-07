@@ -27,10 +27,10 @@ invalid entry is discovered, display an appropriate error message.
 (The Irvine32 library is required for this solution program.)
 5. Boolean Calculator (1)
 Create a program that functions as a simple boolean calculator for 32-bit integers. It should display a menu that asks the user to make a selection from the following list:
-1. x AND y
-2. x OR y
-3. NOT x
-4. x XOR y
+a. x AND y
+b. x OR y
+c. NOT x
+d. x XOR y
 5. Exit program
 When the user makes a choice, call a procedure that displays the name of the operation about to
 be performed. You must implement this procedure using the Table-Driven Selection technique,
