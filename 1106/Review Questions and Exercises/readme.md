@@ -1,30 +1,30 @@
-1. What will be the value of BX after the following instructions execute?
+1. What will be the value of BX after the following instructions execute?**006Bh**
 mov bx,0FFFFh
 and bx,6Bh
-2. What will be the value of BX after the following instructions execute?
+2. What will be the value of BX after the following instructions execute?**0092h**
 mov bx,91BAh
 and bx,92h
-3. What will be the value of BX after the following instructions execute?
+3. What will be the value of BX after the following instructions execute?**64BBh**
 mov bx,0649Bh
 or bx,3Ah
-4. What will be the value of BX after the following instructions execute?
+4. What will be the value of BX after the following instructions execute?**A857h**
 mov bx,029D6h
 xor bx,8181h
-5. What will be the value of EBX after the following instructions execute?
+5. What will be the value of EBX after the following instructions execute?**BFAFF69Fh**
 mov ebx,0AFAF649Bh
 or ebx,3A219604h
-6. What will be the value of RBX after the following instructions execute?
+6. What will be the value of RBX after the following instructions execute?**FFFFFFFF50509B64h**
 mov rbx,0AFAF649Bh
 xor rbx,0FFFFFFFFh
 7. In the following instruction sequence, show the resulting value of AL where indicated, in binary:
 mov al,01101111b
-and al,00101101b ; a.
+and al,00101101b ; a.**00101101b**
 mov al,6Dh
-and al,4Ah ; b.
+and al,4Ah ; b.**01001000b**
 mov al,00001111b
-or al,61h ; c.
+or al,61h ; c.**01101111b**
 mov al,94h
-xor al,37h ; d.
+xor al,37h ; d.**10100011b**
 8. In the following instruction sequence, show the resulting value of AL where indicated, in
 hexadecimal:
 mov al,7Ah
