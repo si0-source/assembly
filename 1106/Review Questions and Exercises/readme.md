@@ -105,18 +105,50 @@ if( val1 > ecx ) AND ( ecx > edx )
  X = 1
 else
  X = 2;
+**mov eax, DWORD PTR [val1]
+cmp eax, ecx
+jle set1
+cmp ecx, edx
+jle set1
+mov DWORD PTR [X], 1
+jmp done
+set1:
+mov DWORD PTR [X], 2
+done:**
 8. Implement the following pseudocode in assembly language. Use short-circuit evaluation
 and assume that X is a 32-bit variable.
 if( ebx > ecx ) OR ( ebx > val1 )
  X = 1
 else
  X = 2
+**cmp ebx, ecx
+jg set1
+cmp ebx, DWORD PTR [val1]
+jg set1
+mov DWORD PTR [X], 2
+jmp done
+set1:
+mov DWORD PTR [X], 1
+done:**
 9. Implement the following pseudocode in assembly language. Use short-circuit evaluation
 and assume that X is a 32-bit variable.
 if( ebx > ecx AND ebx > edx) OR ( edx > eax )
  X = 1
 else
  X = 2
+**cmp ebx, ecx
+jle set2
+cmp ebx, edx
+jle set2
+mov DWORD PTR [X], 1
+jmp done
+cmp edx, eax
+jg set1
+mov DWORD PTR [X], 2
+jmp done
+set1:
+mov DWORD PTR [X], 1
+done:**
 10. Implement the following pseudocode in assembly language. Use short-circuit evaluation
 and assume that A, B, and N are 32-bit signed integers.
 while N > 0
@@ -125,3 +157,20 @@ while N > 0
  else
  N = N – 1
 end whle
+**start:
+cmp DWORD PTR [N], 0
+jle done
+cmp DWORD PTR [N], 3
+je else
+cmp DWORD PTR [N], DWORD PTR [A]
+jl take
+cmp DWORD PTR [N], DWORD PTR [B]
+jg take
+jmp else
+take:
+sub DWORD PTR [N], 2
+jmp start
+else:
+sub DWORD PTR [N], 1
+jmp start
+done:**
