@@ -106,19 +106,39 @@ val1 = (val2 * val3) / (val4 - 3)
 12. Implement the following C++ expression in assembly language, using 32-bit signed
 operands:
 val1 = (val2 / val3) * (val1 + val2)
+**mov eax, DWORD PTR [val2]  
+ cdq  
+idiv DWORD PTR [val3]   
+mov ebx, DWORD PTR [val1]   
+add ebx, DWORD PTR [val2]   
+imul eax, ebx mov DWORD PTR [val1], eax**
+
+
 13. Write a procedure that displays an unsigned 8-bit binary value in decimal format. Pass the
 binary value in AL. The input range is limited to 0 to 99, decimal. The only procedure you
 can call from the book’s link library is WriteChar. The procedure should contain approximately eight instructions. Here is a sample call:
 mov al,65 ; range limit: 0 to 99
 call showDecimal8
+**xor ah, ah
+mov bl, 10
+div bl
+add al, '0'
+call WriteChar
+mov al, ah
+add al, '0'
+call WriteChar**
 14. Challenge: Suppose AX contains 0072h and the Auxiliary Carry flag is set as a result of
-adding two unknown ASCII decimal digits. Use the Intel 64 and IA-32 Instruction Set Reference to determine what output the AAA instruction would produce. Explain your answer.
+adding two unknown ASCII decimal digits. Use the Intel 64 and IA-32 Instruction Set Reference to determine what output the AAA instruction would produce. Explain your answer.**AF가 참이어서 al에 06h ah에 더한 후 각각 and 0Fh한다 그러면 0178이 되고 and해서 0108h가 된다. 답: 0108h**
 15. Challenge: Using only SUB, MOV, and AND instructions, show how to calculate x = n mod y,
 assuming that you are given the values of n and y. You can assume that n is any 32-bit
-unsigned integer, and y is a power of 2.
+unsigned integer, and y is a power of 2.**mov eax, [n] mov ecx, [y] sub ecx, 1 and eax, ecx mov [x], eax**
 16. Challenge: Using only SAR, ADD, and XOR instructions (but no conditional jumps), write
 code that calculates the absolute value of the signed integer in the EAX register. Hints: A
 number can be negated by adding 1 to it and then forming its one’s complement. Also, if
 you XOR an integer with all 1s, its 1s are reversed. On the other hand, if you XOR an integer with all zeros, the integer is unchanged.
 mov ebx,10h
 div ebx
+**mov edx, eax  
+sar edx, 31  
+add eax, edx  
+xor eax, edx**
