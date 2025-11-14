@@ -1,48 +1,48 @@
 1. In the following code sequence, show the value of AL after each shift or rotate instruction
 has executed:
 mov al,0D4h
-shr al,1 ; a.
+shr al,1 ; a.**6Ah**
 mov al,0D4h
-sar al,1 ; b.
+sar al,1 ; b.**EAh**
 mov al,0D4h
-sar al,4 ; c.
+sar al,4 ; c.**FDh**
 mov al,0D4h
-rol al,1 ; d.
+rol al,1 ; d.**A9h**
 2. In the following code sequence, show the value of AL after each shift or rotate instruction
 has executed:
 mov al,0D4h
-ror al,3 ; a.
+ror al,3 ; a.**9Ah**
 mov al,0D4h
-rol al,7 ; b.
+rol al,7 ; b.**6Ah**
 stc
 mov al,0D4h
-rcl al,1 ; c.
+rcl al,1 ; c.**A9h**
 stc
 mov al,0D4h
-rcr al,3 ; d.
-3. What will be the contents of AX and DX after the following operation?
+rcr al,3 ; d.**3Ah**
+3. What will be the contents of AX and DX after the following operation?**DX: 0002h, AX: 2200h**
 mov dx,0
 mov ax,222h
 mov cx,100h
 mul cx
-4. What will be the contents of AX after the following operation?
+4. What will be the contents of AX after the following operation?**AX: 0306h**
 mov ax,63h
 mov bl,10h
 div bl
-5. What will be the contents of EAX and EDX after the following operation?
+5. What will be the contents of EAX and EDX after the following operation?**EAX: 00123400h, EDX: 00000000h**
 mov eax,123400h
 mov edx,0
-6. What will be the contents of AX and DX after the following operation?
+6. What will be the contents of AX and DX after the following operation?**AX: 0500h DX: 000h**
 mov ax,4000h
 mov dx,500h
 mov bx,10h
 div bx
-7. What will be the contents of BX after the following instructions execute?
+7. What will be the contents of BX after the following instructions execute?**0066h**
 mov bx,5
 stc
 mov ax,60h
 adc bx,ax
-8. Describe the output when the following code executes in 64-bit mode:
+8. Describe the output when the following code executes in 64-bit mode:**RAX: 1080000000333000h, RDX: 20h**
 .data
 dividend_hi QWORD 00000108h
 dividend_lo QWORD 33300020h
@@ -59,42 +59,49 @@ val2 QWORD 055210304A2630B2h
 result QWORD 0
 .code
 mov cx,8 ; loop counter
-mov esi,val1 ; set index to start
-mov edi,val2
+mov esi, OFFSET val1 ; set index to start
+mov edi, OFFSET val2
+mov ebx, OFFSET result
 clc ; clear Carry flag
 top:
 mov al,BYTE PTR[esi] ; get first number
 sbb al,BYTE PTR[edi] ; subtract second
-mov BYTE PTR[esi],al ; store the result
+mov BYTE PTR[ebx],al ; store the result
 dec esi
 dec edi
+dec ebx
 loop top
 10. What will be the hexadecimal contents of RAX after the following instructions execute in
-64-bit mode?
+64-bit mode?**RAX: 0004080C10140000h**
 .data
 multiplicand QWORD 0001020304050000h
 .code
 imul rax,multiplicand, 4
 1. Write a sequence of shift instructions that cause AX to be sign-extended into EAX. In other words,
-the sign bit of AX is copied into the upper 16 bits of EAX. Do not use the CWD instruction.
+the sign bit of AX is copied into the upper 16 bits of EAX. Do not use the CWD instruction.**movzx eax, ax shl eax, 16 sar eax, 16**
 2. Suppose the instruction set contained no rotate instructions. Show how you would use
 SHR and a conditional jump instruction to rotate the contents of the AL register 1 bit to
-the right.
-3. Write a logical shift instruction that multiplies the contents of EAX by 16.
-4. Write a logical shift instruction that divides EBX by 4.
-5. Write a single rotate instruction that exchanges the high and low halves of the DL register.
+the right.**shr al,1 jnc nowrap or al, 80h nowrap:**
+3. Write a logical shift instruction that multiplies the contents of EAX by 16.**shl eax, 4**
+4. Write a logical shift instruction that divides EBX by 4.**shr ebx, 2**
+5. Write a single rotate instruction that exchanges the high and low halves of the DL register.**rol dl, 4**
 6. Write a single SHLD instruction that shifts the highest bit of the AX register into the lowest
-bit position of DX and shifts DX one bit to the left.
+bit position of DX and shifts DX one bit to the left.**shld dx, ax, 1**
 7. Write a sequence of instructions that shift three memory bytes to the right by 1 bit position.
-Use the following test data:
+Use the following test data:**clc rcr BYTE PTR [byteArray+2], 1 rcr BYTE PTR [byteArray+1], 1 rcr BYTE PTR [byteArray], 1**
 byteArray BYTE 81h,20h,33h
 8. Write a sequence of instructions that shift three memory words to the left by 1 bit position.
-Use the following test data:
+Use the following test data:**clc rcl WORD PTR [wordArray], 1 rcl WORD PTR [wordArray+2], 1 rcl WORD PTR [wordArray+4], 1**
 wordArray WORD 810Dh, 0C064h,93ABh
-9. Write instructions that multiply 5 by 3 and store the result in a 16-bit variable val1.
-10. Write instructions that divide 276 by 10 and store the result in a 16-bit variable val1.
+9. Write instructions that multiply 5 by 3 and store the result in a 16-bit variable val1.**mov ax, 5 imul ax, 3 mov [val1], ax**
+10. Write instructions that divide 276 by 10 and store the result in a 16-bit variable val1.**mov ax, 276  mov bl, 10 div bl movzx ax, al mov [val1], ax**
 11. Implement the following C++ expression in assembly language, using 32-bit unsigned
-operands:
+operands:**mov eax, DWORD PTR [val2]  
+mul DWORD PTR [val3]  
+mov ecx, DWORD PTR [val4]  
+sub ecx, 3  
+div ecx  
+mov DWORD PTR [val1], eax**
 val1 = (val2 * val3) / (val4 - 3)
 12. Implement the following C++ expression in assembly language, using 32-bit signed
 operands:
