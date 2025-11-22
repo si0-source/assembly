@@ -28,10 +28,10 @@ return adress ebp esp**
 2. Create a procedure named AddThree that receives three integer parameters and calculates
 and returns their sum in the EAX register.
 **AddThree PROC STDCALL first:DWORD, second:DWORD, third:DWORD
-    mov eax, first
-    add eax, second
-    add eax, third
-    ret 12
+    mov eax, first  
+    add eax, second  
+    add eax, third  
+    ret 12  
 AddThree ENDP**
 3. Declare a local variable named pArray that is a pointer to an array of doublewords.
 **LOCAL pArray:DWORD**
@@ -44,15 +44,34 @@ AddThree ENDP**
 7. Declare a local variable named myArray that is an array of 20 doublewords.
 **LOCAL myArray[20]:DWORD**
 8. Create a procedure named SetColor that receives two stack parameters: forecolor and backcolor, and calls the SetTextColor procedure from the Irvine32 library.
+**SetColor PROC STDCALL forecolor:DWORD, backcolor:DWORD  
+    mov eax, forecolor  
+    mov ebx, backcolor  
+    call SetTextColor  
+    ret 8  
+SetColor ENDP**
 9. Create a procedure named WriteColorChar that receives three stack parameters: char,
 forecolor, and backcolor. It displays a single character, using the color attributes specified in
 forecolor and backcolor.
+**WriteColorChar PROC STDCALL char:BYTE, forecolor:DWORD, backcolor:DWORD  
+    mov eax, forecolor  
+    mov ebx, backcolor  
+    call SetTextColor  
+    mov al, char  
+    call WriteChar  
+    ret 12  
+WriteColorChar ENDP**
 10. Write a procedure named DumpMemory that encapsulates the DumpMem procedure in the
 Irvine32 library. Use declared parameters and the USES directive. The following is an
 example of how it should be called: INVOKE DumpMemory, OFFSET array, LENGTHOF
 array, TYPE array.
+**DumpMemory PROC USES esi edi, offset:PTR BYTE, leng:DWORD, type:DWORD  
+INVOKE DumpMem, offset, leng, type  
+ret 12  
+DumpMemory ENDP**
 11. Declare a procedure named MultArray that receives two pointers to arrays of doublewords,
 and a third parameter indicating the number of array elements. Also, create a PROTO declaration for this procedure.
-
-
-
+**MultArray PROTO, adress1:PTR DWORD, adress2:PTR DWORD, type:DWORD  
+MultArray PROC, adress1:PTR DWORD, adress2:PTR DWORD, type:DWORD  
+ret  
+MultArray ENDP**
