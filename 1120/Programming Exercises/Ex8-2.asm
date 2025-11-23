@@ -1,5 +1,3 @@
-.model flat, stdcall
-
 include Irvine32.inc
 
 LIGHT_COLOR EQU 0F0h
@@ -84,5 +82,6 @@ main PROC
 
     INVOKE ExitProcess, 0
 main ENDP
+
 
 END main
