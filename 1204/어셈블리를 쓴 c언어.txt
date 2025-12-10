@@ -1,0 +1,76 @@
+어셈블리를 쓴 c언어
+#include <stdio.h>
+
+int main() {
+    int a = 7;
+    int b = 5;
+    int result;
+
+    __asm {
+        mov eax, a   ; eax = a
+        add eax, b   ; eax = a + b
+        mov result, eax  ; result = eax
+    }
+
+    printf("%d + %d = %d\n", a, b, result);
+
+    return 0;
+}
+라이브러리
+#include <stdio.h>
+
+int Add(int a, int b)
+{
+    int result;
+
+    __asm {
+        mov eax, a
+        add eax, b
+        mov result, eax
+    }
+
+    return result;
+}
+라이브러리 실행
+#include <stdio.h>
+
+#pragma comment(lib, "Project.lib")  // 네가 만든 lib 이름
+
+
+int Add(int a, int b);
+
+int main()
+{
+    int result = Add(7, 5);
+
+    printf("결과: %d\n", result);
+    return 0;
+}
+DLL
+#include <stdio.h>
+
+#pragma comment(lib, "Project.lib")   // DLL 빌드하면 자동 생성되는 .lib
+
+__declspec(dllimport)
+int Add(int a, int b);   // DLL 함수 선언
+
+int main()
+{
+    int r = Add(7, 5);
+    printf("결과: %d\n", r);
+    return 0;
+}
+DLL실행
+#include <stdio.h>
+
+#pragma comment(lib, "Project.lib")
+
+__declspec(dllimport)
+int Add(int a, int b);
+
+int main()
+{
+    int r = Add(7, 5);
+    printf("결과: %d\n", r);
+    return 0;
+}
